@@ -37,32 +37,32 @@ export default function DashboardLayout({
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Link href="/dashboard" asChild>
-                <SidebarMenuButton isActive={pathname === '/dashboard'}>
+              <Link href="/dashboard" passHref>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard'}>
                   <Home />
                   <span>Dashboard</span>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
             <SidebarMenuItem>
-               <Link href="/dashboard/courses" asChild>
-                <SidebarMenuButton isActive={pathname.startsWith('/dashboard/courses')}>
+               <Link href="/dashboard/courses" passHref>
+                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/courses')}>
                   <BookCopy />
                   <span>Courses</span>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
              <SidebarMenuItem>
-              <Link href="/dashboard/profile" asChild>
-                <SidebarMenuButton isActive={pathname === '/dashboard/profile'}>
+              <Link href="/dashboard/profile" passHref>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'}>
                   <User />
                   <span>Profile</span>
                 </SidebarMenuButton>
               </Link>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <Link href="/dashboard/settings" asChild>
-                <SidebarMenuButton isActive={pathname === '/dashboard/settings'}>
+              <Link href="/dashboard/settings" passHref>
+                <SidebarMenuButton asChild isActive={pathname === '/dashboard/settings'}>
                   <Settings />
                   <span>Settings</span>
                 </SidebarMenuButton>

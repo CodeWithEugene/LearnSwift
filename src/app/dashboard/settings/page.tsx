@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -5,6 +7,14 @@ import { Switch } from '@/components/ui/switch';
 import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function SettingsPage() {
+  const handleChangePassword = () => {
+    console.log('Change password clicked. In a real app, this would show a modal.');
+  }
+  
+  const handleDeleteAccount = () => {
+    console.log('Delete account clicked. In a real app, this would show a confirmation dialog.');
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
@@ -42,8 +52,8 @@ export default function SettingsPage() {
           <CardDescription>Manage your account settings.</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <Button variant="outline">Change Password</Button>
-          <Button variant="destructive">Delete Account</Button>
+          <Button variant="outline" onClick={handleChangePassword}>Change Password</Button>
+          <Button variant="destructive" onClick={handleDeleteAccount}>Delete Account</Button>
         </CardContent>
       </Card>
     </div>

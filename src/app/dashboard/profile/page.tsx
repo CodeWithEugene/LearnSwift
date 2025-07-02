@@ -1,3 +1,5 @@
+'use client'
+
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,6 +7,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 export default function ProfilePage() {
+  const handleSaveChanges = () => {
+    console.log('Save changes clicked. In a real app, this would submit the form.');
+  }
+
+  const handleChangePhoto = () => {
+    console.log('Change photo clicked. In a real app, this would open a file picker.');
+  }
+
   return (
     <div className="flex flex-col gap-6">
       <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
@@ -19,7 +29,7 @@ export default function ProfilePage() {
               <AvatarImage src="https://placehold.co/80x80.png" data-ai-hint="user avatar" alt="User" />
               <AvatarFallback>AD</AvatarFallback>
             </Avatar>
-            <Button variant="outline">Change Photo</Button>
+            <Button variant="outline" onClick={handleChangePhoto}>Change Photo</Button>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
@@ -31,7 +41,7 @@ export default function ProfilePage() {
               <Input id="email" type="email" defaultValue="alex.doe@example.com" />
             </div>
           </div>
-          <Button>Save Changes</Button>
+          <Button onClick={handleSaveChanges}>Save Changes</Button>
         </CardContent>
       </Card>
     </div>

@@ -40,7 +40,6 @@ export default function AuthPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd validate and send to a server
     console.log('Logging in with:', loginEmail, loginPassword);
     if (loginEmail && loginPassword) {
       router.push('/dashboard');
@@ -49,11 +48,17 @@ export default function AuthPage() {
 
   const handleSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd validate and send to a server
     console.log('Signing up with:', signupEmail, signupPassword);
     if (signupEmail && signupPassword) {
       router.push('/dashboard');
     }
+  };
+
+  const handleGoogleAuth = () => {
+    console.log('Google authentication initiated.');
+    // In a real app, this would trigger the Google OAuth flow.
+    // For now, we'll just redirect to the dashboard.
+    router.push('/dashboard');
   };
 
   return (
@@ -80,16 +85,16 @@ export default function AuthPage() {
                   <Input id="email-login" type="email" placeholder="m@example.com" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password-login">Password</Label>
+                  <div className="flex items-center">
+                    <Label htmlFor="password-login">Password</Label>
+                    <Link href="#" onClick={(e) => { e.preventDefault(); console.log('Forgot password clicked'); }} className="ml-auto inline-block text-sm underline">
+                      Forgot your password?
+                    </Link>
+                  </div>
                   <Input id="password-login" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} required />
                 </div>
-                 <div className="flex items-center">
-                  <Link href="#" className="ml-auto inline-block text-sm underline">
-                    Forgot your password?
-                  </Link>
-                </div>
                 <Button type="submit" className="w-full">Login</Button>
-                <Button variant="outline" className="w-full" type="button">
+                <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth}>
                   <GoogleIcon className="mr-2 h-4 w-4" />
                   Login with Google
                 </Button>
@@ -114,7 +119,7 @@ export default function AuthPage() {
                   <Input id="password-signup" type="password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} required />
                 </div>
                 <Button type="submit" className="w-full">Create Account</Button>
-                 <Button variant="outline" className="w-full" type="button">
+                 <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth}>
                   <GoogleIcon className="mr-2 h-4 w-4" />
                   Sign up with Google
                 </Button>

@@ -170,8 +170,8 @@ export default function LandingPage() {
                 </div>
             </div>
             <div className="relative h-80 rounded-lg overflow-hidden shadow-2xl">
-              <Image src="https://placehold.co/600x400/e0f2f1/4db6ac" data-ai-hint="light mode interface" alt="Light mode UI" layout="fill" objectFit="cover" className="absolute top-0 left-0 w-1/2 h-full"/>
-              <Image src="https://placehold.co/600x400/263238/4db6ac" data-ai-hint="dark mode interface" alt="Dark mode UI" layout="fill" objectFit="cover" className="absolute top-0 right-0 w-1/2 h-full"/>
+              <Image src="https://placehold.co/600x400/DBEAFE/3B82F6" data-ai-hint="light mode interface" alt="Light mode UI" layout="fill" objectFit="cover" className="absolute top-0 left-0 w-1/2 h-full"/>
+              <Image src="https://placehold.co/600x400/1E293B/3B82F6" data-ai-hint="dark mode interface" alt="Dark mode UI" layout="fill" objectFit="cover" className="absolute top-0 right-0 w-1/2 h-full"/>
             </div>
           </div>
         </section>
