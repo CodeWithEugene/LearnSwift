@@ -1,10 +1,14 @@
+'use client';
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen, ChromeIcon } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -28,6 +32,30 @@ function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
   }
 
 export default function AuthPage() {
+  const router = useRouter();
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [signupEmail, setSignupEmail] = useState('');
+  const [signupPassword, setSignupPassword] = useState('');
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, you'd validate and send to a server
+    console.log('Logging in with:', loginEmail, loginPassword);
+    if (loginEmail && loginPassword) {
+      router.push('/dashboard');
+    }
+  };
+
+  const handleSignup = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real app, you'd validate and send to a server
+    console.log('Signing up with:', signupEmail, signupPassword);
+    if (signupEmail && signupPassword) {
+      router.push('/dashboard');
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-secondary">
         <Link href="/" className="absolute top-4 left-4 flex items-center space-x-2 text-foreground">
@@ -45,27 +73,27 @@ export default function AuthPage() {
               <CardTitle>Welcome Back</CardTitle>
               <CardDescription>Enter your credentials to access your account.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email-login">Email</Label>
-                <Input id="email-login" type="email" placeholder="m@example.com" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password-login">Password</Label>
-                <Input id="password-login" type="password" />
-              </div>
-               <div className="flex items-center">
-                <Link href="#" className="ml-auto inline-block text-sm underline">
-                  Forgot your password?
-                </Link>
-              </div>
-              <Link href="/dashboard" className="w-full">
-                <Button className="w-full">Login</Button>
-              </Link>
-              <Button variant="outline" className="w-full">
-                <GoogleIcon className="mr-2 h-4 w-4" />
-                Login with Google
-              </Button>
+            <CardContent>
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email-login">Email</Label>
+                  <Input id="email-login" type="email" placeholder="m@example.com" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password-login">Password</Label>
+                  <Input id="password-login" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} required />
+                </div>
+                 <div className="flex items-center">
+                  <Link href="#" className="ml-auto inline-block text-sm underline">
+                    Forgot your password?
+                  </Link>
+                </div>
+                <Button type="submit" className="w-full">Login</Button>
+                <Button variant="outline" className="w-full" type="button">
+                  <GoogleIcon className="mr-2 h-4 w-4" />
+                  Login with Google
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </TabsContent>
@@ -75,22 +103,22 @@ export default function AuthPage() {
               <CardTitle>Create an Account</CardTitle>
               <CardDescription>Enter your details to start your learning journey.</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="email-signup">Email</Label>
-                <Input id="email-signup" type="email" placeholder="m@example.com" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password-signup">Password</Label>
-                <Input id="password-signup" type="password" />
-              </div>
-              <Link href="/dashboard" className="w-full">
-                <Button className="w-full">Create Account</Button>
-              </Link>
-               <Button variant="outline" className="w-full">
-                <GoogleIcon className="mr-2 h-4 w-4" />
-                Sign up with Google
-              </Button>
+            <CardContent>
+              <form onSubmit={handleSignup} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email-signup">Email</Label>
+                  <Input id="email-signup" type="email" placeholder="m@example.com" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password-signup">Password</Label>
+                  <Input id="password-signup" type="password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} required />
+                </div>
+                <Button type="submit" className="w-full">Create Account</Button>
+                 <Button variant="outline" className="w-full" type="button">
+                  <GoogleIcon className="mr-2 h-4 w-4" />
+                  Sign up with Google
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </TabsContent>
