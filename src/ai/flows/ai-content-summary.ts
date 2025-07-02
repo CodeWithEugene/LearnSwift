@@ -1,4 +1,3 @@
-// src/ai/flows/ai-content-summary.ts
 'use server';
 
 /**
@@ -32,7 +31,7 @@ const prompt = ai.definePrompt({
   name: 'aiContentSummaryPrompt',
   input: {schema: AiContentSummaryInputSchema},
   output: {schema: AiContentSummaryOutputSchema},
-  prompt: `Summarize the following learning content into a concise summary:
+  prompt: `Summarize the following learning content into a concise summary that is easy to understand for a beginner. The summary should be a few sentences long.
 
   {{{content}}}`,
 });

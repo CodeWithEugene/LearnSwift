@@ -29,7 +29,7 @@ const AdaptiveContentOutputSchema = z.object({
   content: z.string().describe('The generated learning content.'),
   difficulty: z
     .string()
-    .describe('The difficulty level of the generated content.'),
+-    .describe('The difficulty level of the generated content.'),
 });
 export type AdaptiveContentOutput = z.infer<typeof AdaptiveContentOutputSchema>;
 

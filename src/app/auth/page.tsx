@@ -6,28 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { BookOpen } from 'lucide-react';
+import { BookOpen, LogIn } from 'lucide-react';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
-      <svg
-        {...props}
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M15.5 13.5c0 2-1.5 3.5-3.5 3.5s-3.5-1.5-3.5-3.5 1.5-3.5 3.5-3.5 3.5 1.5 3.5 3.5z" />
-        <path d="M22 12c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2s10 4.5 10 10z" />
-        <path d="M12 12h.01" />
-      </svg>
+        <svg fill="currentColor" viewBox="0 0 48 48" {...props}><path d="M44.5,20H24v8.5h11.8C34.7,33.9,30.1,37,24,37c-7.2,0-13-5.8-13-13s5.8-13,13-13c3.1,0,5.9,1.1,8.1,2.9l6.4-6.4C34.6,4.1,29.6,2,24,2C11.8,2,2,11.8,2,24s9.8,22,22,22c11,0,21-8,21-22C45,22.5,44.9,21.2,44.5,20z"></path></svg>
     );
   }
 
@@ -37,97 +22,117 @@ export default function AuthPage() {
   const [loginPassword, setLoginPassword] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
   const [signupPassword, setSignupPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleAuth = (e: React.FormEvent, type: 'login' | 'signup') => {
     e.preventDefault();
-    console.log('Logging in with:', loginEmail, loginPassword);
-    if (loginEmail && loginPassword) {
-      router.push('/dashboard');
-    }
-  };
-
-  const handleSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Signing up with:', signupEmail, signupPassword);
-    if (signupEmail && signupPassword) {
-      router.push('/dashboard');
-    }
+    setLoading(true);
+    console.log(`${type} with:`, type === 'login' ? loginEmail : signupEmail);
+    
+    // Simulate API call
+    setTimeout(() => {
+        router.push('/dashboard');
+        // No need to setLoading(false) as we are navigating away
+    }, 1000);
   };
 
   const handleGoogleAuth = () => {
+    setLoading(true);
     console.log('Google authentication initiated.');
     // In a real app, this would trigger the Google OAuth flow.
-    // For now, we'll just redirect to the dashboard.
-    router.push('/dashboard');
+    setTimeout(() => {
+        router.push('/dashboard');
+    }, 1000);
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-secondary">
-        <Link href="/" className="absolute top-4 left-4 flex items-center space-x-2 text-foreground">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
+      <div className="absolute top-4 left-4">
+        <Link href="/" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors">
             <BookOpen className="h-6 w-6 text-primary" />
             <span className="font-bold text-lg">LearnSwift</span>
         </Link>
-      <Tabs defaultValue="login" className="w-[400px]">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="login">Login</TabsTrigger>
-          <TabsTrigger value="signup">Sign Up</TabsTrigger>
-        </TabsList>
-        <TabsContent value="login">
-          <Card>
-            <CardHeader>
-              <CardTitle>Welcome Back</CardTitle>
-              <CardDescription>Enter your credentials to access your account.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleLogin} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email-login">Email</Label>
-                  <Input id="email-login" type="email" placeholder="m@example.com" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} required />
-                </div>
-                <div className="space-y-2">
-                  <div className="flex items-center">
-                    <Label htmlFor="password-login">Password</Label>
-                    <Link href="#" onClick={(e) => { e.preventDefault(); console.log('Forgot password clicked'); }} className="ml-auto inline-block text-sm underline">
-                      Forgot your password?
-                    </Link>
-                  </div>
-                  <Input id="password-login" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} required />
-                </div>
-                <Button type="submit" className="w-full">Login</Button>
-                <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth}>
-                  <GoogleIcon className="mr-2 h-4 w-4" />
-                  Login with Google
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="signup">
-          <Card>
-            <CardHeader>
-              <CardTitle>Create an Account</CardTitle>
-              <CardDescription>Enter your details to start your learning journey.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSignup} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email-signup">Email</Label>
-                  <Input id="email-signup" type="email" placeholder="m@example.com" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="password-signup">Password</Label>
-                  <Input id="password-signup" type="password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} required />
-                </div>
-                <Button type="submit" className="w-full">Create Account</Button>
-                 <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth}>
-                  <GoogleIcon className="mr-2 h-4 w-4" />
-                  Sign up with Google
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+      </div>
+
+      <Card className="w-full max-w-md mx-auto shadow-xl">
+        <Tabs defaultValue="login" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="login">Login</TabsTrigger>
+            <TabsTrigger value="signup">Sign Up</TabsTrigger>
+            </TabsList>
+            <TabsContent value="login">
+                <CardHeader className="text-center">
+                    <CardTitle>Welcome Back!</CardTitle>
+                    <CardDescription>Sign in to continue your learning journey.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                <form onSubmit={(e) => handleAuth(e, 'login')} className="space-y-4">
+                    <div className="space-y-2">
+                    <Label htmlFor="email-login">Email</Label>
+                    <Input id="email-login" type="email" placeholder="m@example.com" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} required disabled={loading} />
+                    </div>
+                    <div className="space-y-2">
+                    <div className="flex items-center">
+                        <Label htmlFor="password-login">Password</Label>
+                        <Link href="#" onClick={(e) => { e.preventDefault(); console.log('Forgot password clicked'); }} className="ml-auto inline-block text-sm text-primary hover:underline">
+                        Forgot your password?
+                        </Link>
+                    </div>
+                    <Input id="password-login" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)} required disabled={loading} />
+                    </div>
+                    <Button type="submit" className="w-full" disabled={loading}>
+                        {loading ? 'Logging in...' : 'Login'}
+                    </Button>
+                    <div className="relative my-4">
+                        <div className="absolute inset-0 flex items-center">
+                            <span className="w-full border-t" />
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                            <span className="bg-background px-2 text-muted-foreground">Or continue with</span>
+                        </div>
+                    </div>
+                    <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth} disabled={loading}>
+                        <GoogleIcon className="mr-2 h-4 w-4" />
+                        Login with Google
+                    </Button>
+                </form>
+                </CardContent>
+            </TabsContent>
+            <TabsContent value="signup">
+                <CardHeader className="text-center">
+                    <CardTitle>Create an Account</CardTitle>
+                    <CardDescription>Start your learning journey in just a few clicks.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                <form onSubmit={(e) => handleAuth(e, 'signup')} className="space-y-4">
+                    <div className="space-y-2">
+                    <Label htmlFor="email-signup">Email</Label>
+                    <Input id="email-signup" type="email" placeholder="m@example.com" value={signupEmail} onChange={(e) => setSignupEmail(e.target.value)} required disabled={loading} />
+                    </div>
+                    <div className="space-y-2">
+                    <Label htmlFor="password-signup">Password</Label>
+                    <Input id="password-signup" type="password" value={signupPassword} onChange={(e) => setSignupPassword(e.target.value)} required disabled={loading} />
+                    </div>
+                    <Button type="submit" className="w-full" disabled={loading}>
+                        {loading ? 'Creating Account...' : 'Create Account'}
+                    </Button>
+                     <div className="relative my-4">
+                        <div className="absolute inset-0 flex items-center">
+                            <span className="w-full border-t" />
+                        </div>
+                        <div className="relative flex justify-center text-xs uppercase">
+                            <span className="bg-background px-2 text-muted-foreground">Or sign up with</span>
+                        </div>
+                    </div>
+                    <Button variant="outline" className="w-full" type="button" onClick={handleGoogleAuth} disabled={loading}>
+                        <GoogleIcon className="mr-2 h-4 w-4" />
+                        Sign up with Google
+                    </Button>
+                </form>
+                </CardContent>
+            </TabsContent>
+        </Tabs>
+      </Card>
     </div>
   );
 }
