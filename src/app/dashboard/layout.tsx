@@ -37,36 +37,36 @@ export default function DashboardLayout({
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Link href="/dashboard" passHref>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard'}>
+              <SidebarMenuButton asChild isActive={pathname === '/dashboard'}>
+                <Link href="/dashboard">
                   <Home />
                   <span>Dashboard</span>
-                </SidebarMenuButton>
-              </Link>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-               <Link href="/dashboard/courses" passHref>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/courses')}>
+              <SidebarMenuButton asChild isActive={pathname.startsWith('/dashboard/courses')}>
+                <Link href="/dashboard/courses">
                   <BookCopy />
                   <span>Courses</span>
-                </SidebarMenuButton>
-              </Link>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
              <SidebarMenuItem>
-              <Link href="/dashboard/profile" passHref>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'}>
+              <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'}>
+                <Link href="/dashboard/profile">
                   <User />
                   <span>Profile</span>
-                </SidebarMenuButton>
-              </Link>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <Link href="/dashboard/settings" passHref>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/settings'}>
+              <SidebarMenuButton asChild isActive={pathname === '/dashboard/settings'}>
+                <Link href="/dashboard/settings">
                   <Settings />
                   <span>Settings</span>
-                </SidebarMenuButton>
-              </Link>
+                </Link>
+              </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarContent>
