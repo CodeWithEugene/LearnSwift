@@ -64,6 +64,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'stamford.newyorkcomedyclub.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
+      },
     ],
   },
 };

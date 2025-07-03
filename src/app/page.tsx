@@ -137,7 +137,7 @@ export default function LandingPage() {
                 </div>
             </div>
             <div>
-              <Image src="https://www.edrawmind.com/images/article/7-study-hacks-to-memorize-things-faster/apply-repetition-to-cumulative-memorization.png" data-ai-hint="student learning happy" alt="A happy student learning online" width={1024} height={1024} className="rounded-lg shadow-2xl aspect-square object-cover" />
+              <Image src="https://i.ytimg.com/vi/lnMMyHa9Y-Q/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB8wpanC-IuZC8vDTxnSC-_whB02w" data-ai-hint="student learning happy" alt="A happy student learning online" width={1280} height={720} className="rounded-lg shadow-2xl" />
             </div>
           </div>
         </section>
