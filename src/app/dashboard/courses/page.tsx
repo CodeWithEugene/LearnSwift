@@ -6,12 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const courses = [
-  { title: 'Advanced React Patterns', category: 'React', image: 'https://placehold.co/600x400/dbeafe/3b82f6', aiHint: 'abstract pattern', slug: 'advanced-react-patterns' },
-  { title: 'Next.js 15 Fundamentals', category: 'Next.js', image: 'https://placehold.co/600x400/c7d2fe/4338ca', aiHint: 'modern architecture', slug: 'nextjs-15-fundamentals' },
-  { title: 'AI with Genkit', category: 'AI', image: 'https://placehold.co/600x400/ddd6fe/6d28d9', aiHint: 'artificial intelligence', slug: 'ai-with-genkit' },
-  { title: 'Tailwind CSS for Designers', category: 'CSS', image: 'https://placehold.co/600x400/e9d5ff/7e22ce', aiHint: 'design system', slug: 'tailwind-css-for-designers' },
-  { title: 'TypeScript from Scratch', category: 'TypeScript', image: 'https://placehold.co/600x400/f3e8ff/581c87', aiHint: 'code screen', slug: 'typescript-from-scratch' },
-  { title: 'State Management with Zustand', category: 'React', image: 'https://placehold.co/600x400/fae8ff/701a75', aiHint: 'data flow', slug: 'state-management-with-zustand' },
+  { title: 'Advanced React Patterns', category: 'React', image: 'https://azagatti.dev/img/react-advanced-patterns.jpeg', aiHint: 'abstract pattern', slug: 'advanced-react-patterns' },
+  { title: 'Next.js 15 Fundamentals', category: 'Next.js', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*tH-hL0LqEfi0nsRuzDhC9g.jpeg', aiHint: 'modern architecture', slug: 'nextjs-15-fundamentals' },
+  { title: 'AI with Genkit', category: 'AI', image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/05/Firebase-Genkit-NVIDIA-RTX-GPUs-1.png', aiHint: 'artificial intelligence', slug: 'ai-with-genkit' },
+  { title: 'Tailwind CSS for Designers', category: 'CSS', image: 'https://www.sarvika.com/wp-content/uploads/2023/12/Tailwind-Streamlining-Design-and-Development-beyond-traditional-CSS-jpg.webp', aiHint: 'design system', slug: 'tailwind-css-for-designers' },
+  { title: 'TypeScript from Scratch', category: 'TypeScript', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*Dw2upzn0ChtieJnQQi80_w.jpeg', aiHint: 'code screen', slug: 'typescript-from-scratch' },
+  { title: 'State Management with Zustand', category: 'React', image: 'https://ixorasolution.com/blog/wp-content/uploads/2023/10/Zustand.png', aiHint: 'data flow', slug: 'state-management-with-zustand' },
 ];
 
 export default function CoursesPage() {
@@ -26,7 +26,7 @@ export default function CoursesPage() {
         {courses.map(course => (
           <Card key={course.title} className="flex flex-col overflow-hidden transition-transform hover:scale-105">
             <CardHeader className="p-0">
-              <Image src={course.image} data-ai-hint={course.aiHint} alt={course.title} width={600} height={400} className="w-full" />
+              <Image src={course.image} data-ai-hint={course.aiHint} alt={course.title} width={600} height={400} className="w-full h-48 object-cover" />
             </CardHeader>
             <CardContent className="p-4 flex flex-col flex-grow">
               <CardDescription>{course.category}</CardDescription>
