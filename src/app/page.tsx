@@ -1,31 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Zap, BookOpen, BrainCircuit, Users, Award, Shield, Moon, Sun } from 'lucide-react';
-
-const features = [
-  {
-    icon: <Zap className="w-8 h-8 text-primary" />,
-    title: 'Bite-Sized Lessons',
-    description: 'Learn complex topics in 5-10 minute modules, designed for your busy schedule.',
-  },
-  {
-    icon: <BrainCircuit className="w-8 h-8 text-primary" />,
-    title: 'AI-Powered Paths',
-    description: 'Personalized recommendations adapt to your learning style and career goals.',
-  },
-  {
-    icon: <Users className="w-8 h-8 text-primary" />,
-    title: 'Community Learning',
-    description: 'Connect with peers, share knowledge, and grow together in our community channels.',
-  },
-  {
-    icon: <Award className="w-8 h-8 text-primary" />,
-    title: 'Gamified Experience',
-    description: 'Earn points, badges, and climb the leaderboards to make learning fun.',
-  },
-];
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { CheckCircle, BookOpen, BrainCircuit, Users, Award, Star, Trophy } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const pricingTiers = [
     {
@@ -83,6 +61,33 @@ const pricingTiers = [
       },
 ];
 
+const testimonials = [
+    {
+        name: 'Sarah K.',
+        role: 'Frontend Developer',
+        quote: 'LearnSwift changed the game for me. The bite-sized lessons fit perfectly into my schedule, and the AI recommendations are spot on. I feel like I\'m learning faster than ever before.',
+        avatar: 'https://placehold.co/40x40.png',
+        aiHint: 'woman avatar',
+        rating: 5,
+    },
+    {
+        name: 'David L.',
+        role: 'UX Designer',
+        quote: 'As a designer, I appreciate the beautiful UI, but it\'s the gamified experience that keeps me coming back. Earning badges and seeing my progress is incredibly motivating. Highly recommended!',
+        avatar: 'https://placehold.co/40x40.png',
+        aiHint: 'man avatar',
+        rating: 5,
+    },
+    {
+        name: 'Michael P.',
+        role: 'Product Manager',
+        quote: 'The quality of the content is top-notch. I\'ve taken several courses, and each one has been concise, practical, and directly applicable to my work. It\'s the best learning platform I\'ve used.',
+        avatar: 'https://placehold.co/40x40.png',
+        aiHint: 'person avatar',
+        rating: 5,
+    }
+];
+
 export default function LandingPage() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -94,6 +99,7 @@ export default function LandingPage() {
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium ml-auto">
             <Link href="#features" className="transition-colors hover:text-primary">Features</Link>
+            <Link href="#testimonials" className="transition-colors hover:text-primary">Testimonials</Link>
             <Link href="#pricing" className="transition-colors hover:text-primary">Pricing</Link>
             <Link href="/auth">
               <Button variant="ghost">Login</Button>
@@ -112,74 +118,113 @@ export default function LandingPage() {
 
       <main className="flex-1">
         <section className="py-20 sm:py-32">
-          <div className="container text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
-              Microlearning for a <span className="text-primary">Smarter</span> You.
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-3xl mx-auto">
-              Master new skills in minutes, not months. LearnSwift delivers personalized, bite-sized lessons powered by AI that fit perfectly into your daily life.
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-              <Link href="/auth">
-                <Button size="lg" className="w-full sm:w-auto">Start Learning Now</Button>
-              </Link>
-              <Link href="#features">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto">Explore Features</Button>
-              </Link>
+          <div className="container grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+                <h1 className="text-4xl font-extrabold tracking-tight lg:text-6xl font-headline">
+                Learn faster. <br/>
+                Remember longer.
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-lg">
+                Master new skills in minutes, not months. LearnSwift delivers personalized, bite-sized lessons powered by AI that fit perfectly into your life.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link href="/auth">
+                    <Button size="lg" className="w-full sm:w-auto">Start Your Free Trial</Button>
+                </Link>
+                <Link href="#features">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto">How It Works</Button>
+                </Link>
+                </div>
+            </div>
+            <div>
+              <Image src="https://placehold.co/1024x1024.png" data-ai-hint="student learning happy" alt="A happy student learning online" width={1024} height={1024} className="rounded-lg shadow-2xl aspect-square object-cover" />
             </div>
           </div>
         </section>
 
         <section id="features" className="py-20 sm:py-32 bg-secondary">
-          <div className="container">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Everything You Need to Grow</h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-                Our platform is packed with features designed for effective and engaging learning, all powered by cutting-edge AI.
+          <div className="container space-y-20">
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">The Modern Way to Master Skills</h2>
+              <p className="mt-4 text-muted-foreground">
+                We've rebuilt the learning experience from the ground up. Say goodbye to long lectures and hello to effective, engaging, and personalized education.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {features.map((feature) => (
-                <Card key={feature.title} className="text-center bg-card shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                  <CardHeader>
-                    <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit">
-                      {feature.icon}
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <Image src="https://placehold.co/1200x900.png" data-ai-hint="abstract neural network" alt="Abstract representation of AI" width={1200} height={900} className="rounded-lg shadow-xl"/>
+                </div>
+                <div className="space-y-4">
+                    <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold py-1 px-3 rounded-full">
+                        <BrainCircuit className="w-5 h-5" />
+                        <span>AI-Powered Personalization</span>
                     </div>
-                    <CardTitle className="mt-4 text-xl">{feature.title}</CardTitle>
+                    <h3 className="text-2xl font-bold">Your personal learning co-pilot.</h3>
+                    <p className="text-muted-foreground">Our intelligent system analyzes your learning style, progress, and goals to create a unique curriculum just for you. It's like having a personal tutor, available 24/7.</p>
+                     <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 shrink-0"/><span>Adaptive content that adjusts to your level.</span></li>
+                        <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 shrink-0"/><span>Smart recommendations for what to learn next.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+                 <div className="space-y-4 lg:order-last">
+                    <Image src="https://placehold.co/1200x900.png" data-ai-hint="gamification achievement badge" alt="A digital achievement badge" width={1200} height={900} className="rounded-lg shadow-xl"/>
+                </div>
+                <div className="space-y-4">
+                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold py-1 px-3 rounded-full">
+                        <Trophy className="w-5 h-5" />
+                        <span>Gamified & Fun</span>
+                    </div>
+                    <h3 className="text-2xl font-bold">Learning that feels like playing.</h3>
+                    <p className="text-muted-foreground">We believe learning should be exciting. Earn points, unlock achievements, and compete with friends on the leaderboard. Stay motivated and watch your skills grow.</p>
+                    <ul className="space-y-2 text-muted-foreground">
+                        <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 shrink-0"/><span>Daily challenges and learning streaks.</span></li>
+                        <li className="flex items-start"><CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 shrink-0"/><span>Unlock badges and certificates for your accomplishments.</span></li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" className="py-20 sm:py-32">
+          <div className="container">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Loved by Learners Worldwide</h2>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                Don't just take our word for it. Here's what our community is saying about LearnSwift.
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {testimonials.map((testimonial) => (
+                <Card key={testimonial.name} className="flex flex-col h-full bg-card shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                    <CardContent className="pt-6 flex-1">
+                        <div className="flex mb-2">
+                            {Array.from({ length: 5 }).map((_, i) => (
+                                <Star key={i} className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+                            ))}
+                        </div>
+                        <p className="text-muted-foreground italic">"{testimonial.quote}"</p>
+                    </CardContent>
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                        <Avatar>
+                            <AvatarImage src={testimonial.avatar} data-ai-hint={testimonial.aiHint} alt={testimonial.name} />
+                            <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <div>
+                            <CardTitle className="text-base">{testimonial.name}</CardTitle>
+                            <CardDescription>{testimonial.role}</CardDescription>
+                        </div>
+                    </div>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-        
-        <section className="py-20 sm:py-32">
-          <div className="container grid lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1">
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">A Dashboard as Smart as You Are</h2>
-                <p className="mt-4 text-muted-foreground max-w-xl">
-                  Your personal learning hub. Track progress, continue where you left off, and discover courses recommended just for you by our AI. All in a beautiful, intuitive interface.
-                </p>
-                <div className="mt-6 flex gap-4">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>Progress Tracking</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-primary" />
-                    <span>AI Recommendations</span>
-                  </div>
-                </div>
-            </div>
-            <div className="order-1 lg:order-2">
-              <Image src="https://placehold.co/1200x800.png" data-ai-hint="dashboard interface" alt="App dashboard" width={1200} height={800} className="rounded-lg shadow-2xl"/>
-            </div>
-          </div>
-        </section>
-
 
         <section id="pricing" className="py-20 sm:py-32 bg-secondary">
           <div className="container">
@@ -225,9 +270,23 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        <section className="py-20 sm:py-24">
+            <div className="container text-center bg-primary text-primary-foreground p-12 rounded-lg">
+                <h2 className="text-3xl font-bold tracking-tight">Ready to start your learning journey?</h2>
+                <p className="mt-4 max-w-xl mx-auto">
+                    Join thousands of learners and take your skills to the next level. It's free to get started.
+                </p>
+                <div className="mt-8">
+                     <Link href="/auth">
+                        <Button size="lg" variant="secondary" className="text-lg">Sign Up for Free</Button>
+                    </Link>
+                </div>
+            </div>
+        </section>
       </main>
 
-      <footer className="border-t bg-secondary">
+      <footer className="border-t">
         <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
             <BookOpen className="h-5 w-5 text-muted-foreground" />
