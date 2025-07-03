@@ -36,6 +36,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'ixorasolution.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'blog.openreplay.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.geeksforgeeks.org',
+      },
     ],
   },
 };

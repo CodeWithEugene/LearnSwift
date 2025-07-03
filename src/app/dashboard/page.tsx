@@ -11,14 +11,14 @@ const recommendedCourses = [
   {
     title: 'Data Structures in Python',
     category: 'Programming',
-    image: 'https://placehold.co/80x60',
+    image: 'https://media.geeksforgeeks.org/wp-content/uploads/20211021164218/pythondatastructuresmin.png',
     aiHint: 'data structure algorithm',
     slug: 'data-structures-python'
   },
   {
     title: 'Advanced CSS and Sass',
     category: 'Web Design',
-    image: 'https://placehold.co/80x60',
+    image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*1Ue81hwzy2Lqp_anyO68Tg.jpeg',
     aiHint: 'design layout',
     slug: 'advanced-css-sass'
   }

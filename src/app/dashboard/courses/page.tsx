@@ -11,7 +11,7 @@ const courses = [
   { title: 'AI with Genkit', category: 'AI', image: 'https://developer-blogs.nvidia.com/wp-content/uploads/2024/05/Firebase-Genkit-NVIDIA-RTX-GPUs-1.png', aiHint: 'artificial intelligence', slug: 'ai-with-genkit' },
   { title: 'Tailwind CSS for Designers', category: 'CSS', image: 'https://www.sarvika.com/wp-content/uploads/2023/12/Tailwind-Streamlining-Design-and-Development-beyond-traditional-CSS-jpg.webp', aiHint: 'design system', slug: 'tailwind-css-for-designers' },
   { title: 'TypeScript from Scratch', category: 'TypeScript', image: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*Dw2upzn0ChtieJnQQi80_w.jpeg', aiHint: 'code screen', slug: 'typescript-from-scratch' },
-  { title: 'State Management with Zustand', category: 'React', image: 'https://placehold.co/600x400.png', aiHint: 'data flow', slug: 'state-management-with-zustand' },
+  { title: 'State Management with Zustand', category: 'React', image: 'https://blog.openreplay.com/images/zustand-state-management-for-react/images/hero.png', aiHint: 'data flow', slug: 'state-management-with-zustand' },
 ];
 
 export default function CoursesPage() {
