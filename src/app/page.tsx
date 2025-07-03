@@ -66,7 +66,7 @@ const testimonials = [
         name: 'Sarah K.',
         role: 'Frontend Developer',
         quote: 'LearnSwift changed the game for me. The bite-sized lessons fit perfectly into my schedule, and the AI recommendations are spot on. I feel like I\'m learning faster than ever before.',
-        avatar: 'https://placehold.co/40x40.png',
+        avatar: 'https://afrikalyrics.com/assets/artistes/dr-sarah-k.jpg',
         aiHint: 'woman avatar',
         rating: 5,
     },
@@ -74,7 +74,7 @@ const testimonials = [
         name: 'David L.',
         role: 'UX Designer',
         quote: 'As a designer, I appreciate the beautiful UI, but it\'s the gamified experience that keeps me coming back. Earning badges and seeing my progress is incredibly motivating. Highly recommended!',
-        avatar: 'https://placehold.co/40x40.png',
+        avatar: 'https://www.hollywoodreporter.com/wp-content/uploads/2020/05/gettyimages-93358911-h_2020.jpg?w=1296&h=730&crop=1',
         aiHint: 'man avatar',
         rating: 5,
     },
@@ -82,7 +82,7 @@ const testimonials = [
         name: 'Michael P.',
         role: 'Product Manager',
         quote: 'The quality of the content is top-notch. I\'ve taken several courses, and each one has been concise, practical, and directly applicable to my work. It\'s the best learning platform I\'ve used.',
-        avatar: 'https://placehold.co/40x40.png',
+        avatar: 'https://stamford.newyorkcomedyclub.com/img/comedians/Screenshot-2023-06-09-at-11-27-30-AM-eea30f63-main-image.png?1686324457',
         aiHint: 'person avatar',
         rating: 5,
     }
@@ -137,7 +137,7 @@ export default function LandingPage() {
                 </div>
             </div>
             <div>
-              <Image src="https://placehold.co/1024x1024.png" data-ai-hint="student learning happy" alt="A happy student learning online" width={1024} height={1024} className="rounded-lg shadow-2xl aspect-square object-cover" />
+              <Image src="https://www.edrawmind.com/images/article/7-study-hacks-to-memorize-things-faster/apply-repetition-to-cumulative-memorization.png" data-ai-hint="student learning happy" alt="A happy student learning online" width={1024} height={1024} className="rounded-lg shadow-2xl aspect-square object-cover" />
             </div>
           </div>
         </section>
@@ -153,7 +153,7 @@ export default function LandingPage() {
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <Image src="https://placehold.co/1200x900.png" data-ai-hint="abstract neural network" alt="Abstract representation of AI" width={1200} height={900} className="rounded-lg shadow-xl"/>
+                    <Image src="https://learn.microsoft.com/en-us/copilot/media/copilot/copilot-learning-hub/step-1.png" data-ai-hint="abstract neural network" alt="Abstract representation of AI" width={1200} height={900} className="rounded-lg shadow-xl"/>
                 </div>
                 <div className="space-y-4">
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold py-1 px-3 rounded-full">
@@ -171,7 +171,7 @@ export default function LandingPage() {
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                  <div className="space-y-4 lg:order-last">
-                    <Image src="https://placehold.co/1200x900.png" data-ai-hint="gamification achievement badge" alt="A digital achievement badge" width={1200} height={900} className="rounded-lg shadow-xl"/>
+                    <Image src="https://www.edrawmind.com/images/article/7-study-hacks-to-memorize-things-faster/record-what-you-are-memorizing.png" data-ai-hint="gamification achievement badge" alt="A digital achievement badge" width={1200} height={900} className="rounded-lg shadow-xl"/>
                 </div>
                 <div className="space-y-4">
                      <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-semibold py-1 px-3 rounded-full">

@@ -44,6 +44,26 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'media.geeksforgeeks.org',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.edrawmind.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'learn.microsoft.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'afrikalyrics.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.hollywoodreporter.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'stamford.newyorkcomedyclub.com',
+      },
     ],
   },
 };
